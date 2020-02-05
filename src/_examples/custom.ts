@@ -1,4 +1,4 @@
-import { Mode, CSS, Themec } from '../themec'
+import { Custom, Themec } from '../themec'
 
 class Awesome {
   ToCSS(): string {
@@ -9,7 +9,6 @@ class Awesome {
 let tc: Themec = new Themec()
 let awesome = new Awesome()
 
-tc.customs = [] // why is this needed? in themec.ts, customs: xxx... = [] was done
-
-console.log(tc.str, tc.mode, tc.customs)
-tc.customs.push(new Map<string, CSS>().set('awesome', awesome))
+console.log(tc)
+tc.customs.push(new Map<string, Custom>().set('awesome', awesome))
+console.log(tc)
