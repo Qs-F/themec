@@ -1,0 +1,20 @@
+{
+  "name": "themec",
+  "version": "0.0.1",
+  "main": "index.js",
+  "files": [
+    "dist/"
+  ],
+  "author": "Qs-F",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@types/color": "^3.0.1",
+    "color": "^3.1.2",
+    "csstype": "^2.6.8",
+    "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.0"
+  }
+}
