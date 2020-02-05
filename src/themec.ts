@@ -1,21 +1,13 @@
 import Color = require('color')
-import * as CSS from 'csstype'
 
 export class Themec {
-  str: string = 'hello'
+  str: string
   mode: Mode = Mode.Light
-  theme: Color
-  subtheme: Color
-  whitish: Color
-  blackish: Color
-
-  customs: Array<Map<string, CSS>> = []
-
-  constructor() {
-    this.str = 'hello'
-    this.mode = Mode.Light
-    this.customs = []
-  }
+  theme: Color = Color('#00a0c8')
+  subtheme: Color = Color('#00a050')
+  whitish: Color = Color('#fff')
+  blackish: Color = Color('#000')
+  customs: Array<Map<string, Custom>> = []
 }
 
 export enum Mode {
@@ -23,6 +15,6 @@ export enum Mode {
   Light
 }
 
-export interface CSS {
+export interface Custom {
   ToCSS(): string
 }
