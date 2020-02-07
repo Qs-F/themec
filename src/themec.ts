@@ -1,7 +1,6 @@
 import Color = require('color')
 
 export class Themec {
-  str: string
   mode: Mode = Mode.Light
   theme: Color = Color('#00a0c8')
   subtheme: Color = Color('#00a050')
