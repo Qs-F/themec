@@ -1,4 +1,5 @@
 import { Custom, Themec } from '../themec'
+import Color = require('color')
 
 class Awesome {
   ToCSS(): string {
@@ -6,7 +7,7 @@ class Awesome {
   }
 }
 
-let tc: Themec = new Themec()
+let tc: Themec = new Themec(Color('#00a0c8'))
 let awesome = new Awesome()
 
 console.log(tc)
