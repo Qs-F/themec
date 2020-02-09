@@ -7,6 +7,16 @@ export class Themec {
   whitish: Color = Color('#fff')
   blackish: Color = Color('#000')
   customs: Array<Map<string, Custom>> = []
+
+  constructor(theme: Color, whitish?: Color, blackish?: Color, subtheme?: Color) {
+    if (window?.matchMedia('(prefers-color-scheme: dark)')?.matches) {
+      this.mode = Mode.Dark
+    }
+    this.theme = theme
+    this.subtheme = subtheme || this.subtheme
+    this.whitish = whitish || this.whitish
+    this.blackish = blackish || this.blackish
+  }
 }
 
 export enum Mode {
