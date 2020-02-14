@@ -1,15 +1,27 @@
 import { Custom, Themec } from '../themec'
 import Color = require('color')
+import puppeteer = require('puppeteer-core')
 
-class Awesome {
-  ToCSS(): string {
-    return 'white'
-  }
-}
+(async () => {
+  const browser = await puppeteer.launch({executablePath: '/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe'})
+  const page = await browser.newPage()
+  
+  const tc = await page.evaluate(() => {
 
-let tc: Themec = new Themec(Color('#00a0c8'))
-let awesome = new Awesome()
+    class Awesome {
+      ToCSS(): string {
+        return 'white'
+      }
+    }
 
-console.log(tc)
-tc.customs.push(new Map<string, Custom>().set('awesome', awesome))
-console.log(tc)
+    let tc: Themec = new Themec(Color('#00a0c8'))
+    let awesome = new Awesome()
+    tc.customs.push(new Map<string, Custom>().set('awesome', awesome))
+
+    return tc
+  })
+
+  console.log(tc)
+
+  await browser.close();
+})()

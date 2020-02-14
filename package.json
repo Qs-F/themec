@@ -16,6 +16,8 @@
   },
   "devDependencies": {
     "@types/node": "^13.7.0",
+    "@types/puppeteer-core": "^2.0.0",
+    "puppeteer-core": "^2.1.1",
     "ts-node": "^8.6.2"
   },
   "scripts": {
