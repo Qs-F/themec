@@ -1,6 +1,6 @@
 {
     "name": "@creatorqsf/themec",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "main": "dist/themec.ts",
     "types": "dist/themec.d.ts",
     "files": [
