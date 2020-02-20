@@ -1,0 +1,24 @@
+<test-riot>
+  <p>{ state.mode }</p>
+  <script>
+    import { Mode } from '../../dist/themec.js'
+
+    export default {
+      onBeforeMount() {
+        console.log(this.props.themec)
+        switch (this.props.themec.mode) {
+          case Mode.Dark:
+            this.state.mode = 'dark'
+            break
+          case Mode.Light:
+            this.state.mode = 'light'
+            break
+          default:
+            this.state.mode = 'default'
+            break
+        }
+        this.props.themec.apply(this.root)
+      }
+    }
+  </script>
+</test-riot>
