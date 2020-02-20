@@ -82,13 +82,14 @@ export class VariableImplement {
 }
 
 export class Style {
-  style: Map<string, Variable> = new Map<string, Variable>()
+  styleMap: Map<string, Variable> = new Map<string, Variable>()
 
   setVariable(name: string, variable: string | Variable) {
     if (typeof variable === 'string') {
-      this.style.set(name, new VariableImplement(variable))
+      this.styleMap.set(name, new VariableImplement(variable))
     } else {
-      this.style.set(name, variable)
+      this.styleMap.set(name, variable)
     }
   }
 }
+
