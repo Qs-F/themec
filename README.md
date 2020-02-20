@@ -2,6 +2,8 @@
 
 `themec` is a package to manage themes.
 
+[![Action Status](https://github.com/Qs-F/themec/workflows/build/badge.svg)]
+
 ## Features
 
 - Providing user preference color switch (dark or light)
@@ -89,3 +91,11 @@ thc.apply(document.body)
 //   --alpha: calc(var(--theme-rgb), .5);
 // }
 ```
+
+## LICENSE
+
+MIT
+
+## Author
+
+たふみ(@CreatorQsF)
