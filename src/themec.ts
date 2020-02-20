@@ -65,7 +65,6 @@ export class Themec {
       element.style.setProperty('--' + k, v.toCSS())
     }
   }
- }
 }
 
 export class VariableImplement {
