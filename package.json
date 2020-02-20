@@ -7,7 +7,7 @@
   ],
   "author": "Qs-F",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@types/color": "^3.0.1",
     "color": "^3.1.2",
