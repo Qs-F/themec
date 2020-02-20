@@ -47,12 +47,17 @@ export class Themec {
 
   // apply set current theme, subtheme, whitish, blackish and all customs as css variable to given element.
   apply(element: HTMLElement) {
-    element.style.setProperty('--theme', this.theme.string())
-    element.style.setProperty('--subtheme', this.subtheme.string())
-    element.style.setProperty('--blackish', this.blackish.string())
-    element.style.setProperty('--whitish', this.whitish.string())
+    element.style.setProperty('--theme', this.theme.hex().toString())
+    element.style.setProperty('--subtheme', this.subtheme.hex().toString())
+    element.style.setProperty('--blackish', this.blackish.hex().toString())
+    element.style.setProperty('--whitish', this.whitish.hex().toString())
 
-    for (const [k, v] of Object.entries(this.customs.style)) {
+    element.style.setProperty('--theme-rgb', this.theme.rgb().array().join(','))
+    element.style.setProperty('--subtheme-rgb', this.subtheme.array().join(','))
+    element.style.setProperty('--blackish-rgb', this.blackish.array().join(','))
+    element.style.setProperty('--whitish-rgb', this.whitish.array().join(','))
+
+    for (const [k, v] of Object.entries(this.customs.styleMap)) {
       element.style.setProperty('--' + k, v.toCSS())
     }
   }
