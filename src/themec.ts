@@ -13,6 +13,10 @@ export interface Variable {
   toCSS(): string
 }
 
+// color returns Colro object from css color string.
+// This is for the browser js environment, since Color is Node.js project.
+export const color = (color: string) => new Color(color)
+
 // Themec is main class
 export class Themec {
   // mode is prefers-color-scheme wrapping. Automatically set.
@@ -61,12 +65,7 @@ export class Themec {
       element.style.setProperty('--' + k, v.toCSS())
     }
   }
-
-  // color returns Colro object from css color string.
-  // This is for the browser js environment, since Color is Node.js project.
-  color(col: string): Color{
-    return Color(col)
-  }
+ }
 }
 
 export class VariableImplement {
