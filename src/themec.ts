@@ -61,9 +61,7 @@ export class Themec {
     element.style.setProperty('--blackish-rgb', this.blackish.array().join(','))
     element.style.setProperty('--whitish-rgb', this.whitish.array().join(','))
 
-    for (const [k, v] of Object.entries(this.customs.styleMap)) {
-      element.style.setProperty('--' + k, v.toCSS())
-    }
+    this.customs.styleMap.forEach((v, k) => element.style.setProperty('--' + k, v.toCSS()))
   }
 }
 
