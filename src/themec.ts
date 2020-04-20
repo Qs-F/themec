@@ -50,7 +50,12 @@ export class Themec {
 
   // addCustom adds corresponding name and variable to this.customs.
   // variable can be both of Variable and string.
-  addCustom(name: string, variable: Variable | string) {
+  addCustom(name: string, variable: Variable | Color | string) {
+    if (variable instanceof Color) {
+      this.customs.setVariable(name, variable.hex().toString())
+      this.customs.setVariable(`${name}-rgb`, variable.rgb().array().join(','))
+      return
+    }
     this.customs.setVariable(name, variable)
   }
 
