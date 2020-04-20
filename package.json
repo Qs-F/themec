@@ -26,11 +26,18 @@
     "@riotjs/parcel-plugin-riot": "^4.0.1",
     "@types/color": "^3.0.1",
     "@types/node": "^13.7.0",
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
+    "@typescript-eslint/parser": "^2.29.0",
     "csstype": "^2.6.8",
-    "parcel-bundler": "^1.12.4"
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.10.1",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^2.0.4"
   },
   "scripts": {
     "build": "tsc",
-    "eg": "yarn parcel _examples/index.html"
+    "eg": "parcel _examples/index.html --out-dir _examples/dist",
+    "fmt": "prettier --write 'src/**/*.ts'"
   }
 }
