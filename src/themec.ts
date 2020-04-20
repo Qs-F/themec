@@ -5,7 +5,7 @@ export default Themec
 // Mode is used to define current browser mode.
 export enum Mode {
   Dark,
-  Light
+  Light,
 }
 
 // Variable is an interface to define css variable.
@@ -21,8 +21,8 @@ export const color = (color: string) => new Color(color)
 export class Themec {
   // mode is prefers-color-scheme wrapping. Automatically set.
   // if the system does not support color scheme, then Mode.Light is set.
-  mode: Mode = Mode.Light 
-  
+  mode: Mode = Mode.Light
+
   // theme, subtheme, whitish, blackish is commonly used, so set by default
   theme: Color = Color('#00a0c8')
   subtheme: Color = Color('#00a050')
@@ -31,7 +31,12 @@ export class Themec {
 
   customs: Style = new Style() // customs is the field for custom css variables.
 
-  constructor(theme?: Color, subtheme?: Color, whitish?: Color, blackish?: Color) {
+  constructor(
+    theme?: Color,
+    subtheme?: Color,
+    whitish?: Color,
+    blackish?: Color
+  ) {
     // detect system color scheme, dark or light
     if (window?.matchMedia('(prefers-color-scheme: dark)')?.matches) {
       this.mode = Mode.Dark
@@ -45,7 +50,12 @@ export class Themec {
 
   // addCustom adds corresponding name and variable to this.customs.
   // variable can be both of Variable and string.
-  addCustom(name: string, variable: Variable | string) {
+  addCustom(name: string, variable: Variable | Color | string) {
+    if (variable instanceof Color) {
+      this.customs.setVariable(name, variable.hex().toString())
+      this.customs.setVariable(`${name}-rgb`, variable.rgb().array().join(','))
+      return
+    }
     this.customs.setVariable(name, variable)
   }
 
@@ -61,9 +71,9 @@ export class Themec {
     element.style.setProperty('--blackish-rgb', this.blackish.array().join(','))
     element.style.setProperty('--whitish-rgb', this.whitish.array().join(','))
 
-    for (const [k, v] of Object.entries(this.customs.styleMap)) {
+    this.customs.styleMap.forEach((v, k) =>
       element.style.setProperty('--' + k, v.toCSS())
-    }
+    )
   }
 }
 
@@ -90,4 +100,3 @@ export class Style {
     }
   }
 }
-
